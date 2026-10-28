@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>podi.co | Small-batch South Indian podis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf4e6; --surface:#ffffff; --ink:#2b1a12; --muted:#6b5648;
+  --accent:#c2371b; --accent-ink:#ffffff; --gold:#e8a317; --line:#e9dcc3;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1a1210; --surface:#261a16; --ink:#f5e9d8; --muted:#c4ae9a;
+    --accent:#ef6a47; --accent-ink:#1a1210; --gold:#f0b43a; --line:#3a2a23; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1a1210; --surface:#261a16; --ink:#f5e9d8; --muted:#c4ae9a;
+  --accent:#ef6a47; --accent-ink:#1a1210; --gold:#f0b43a; --line:#3a2a23; color-scheme:dark;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+img,svg{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1050px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.5rem;text-decoration:none;color:var(--accent)}
+.logo span{color:var(--gold)}
+nav a{margin-left:18px;text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+.cartpill{margin-left:18px;background:var(--accent);color:var(--accent-ink);border-radius:99px;padding:4px 12px;font-size:.85rem;font-weight:600}
+.hero{padding:70px 0 50px;display:grid;gap:30px;grid-template-columns:1.2fr 1fr;align-items:center}
+.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.08;margin:.3em 0}
+.lead{color:var(--muted);font-size:1.1rem;max-width:34em}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--accent);color:var(--accent-ink);padding:12px 22px;border-radius:10px;font:600 1rem var(--sans);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);margin-left:8px}
+.jar{aspect-ratio:1;max-width:340px;margin:auto;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold),var(--accent));display:grid;place-items:center;font-size:7rem;box-shadow:0 20px 50px rgba(194,55,27,.3)}
+section{padding:50px 0}
+h2{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.3rem);margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 26px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card .em{font-size:2.2rem}
+.card h3{font-family:var(--serif);margin:.4em 0 .1em}
+.card p{color:var(--muted);font-size:.92rem;margin:.2em 0 1em}
+.heat{font-size:.8rem;color:var(--accent);font-weight:600}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.price{font-weight:600}
+.btn.sm{padding:8px 14px;font-size:.88rem}
+.story{display:grid;gap:30px;grid-template-columns:1fr 1fr;align-items:center}
+.stats{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);text-align:center}
+.stats b{display:block;font-family:var(--serif);font-size:2rem;color:var(--accent)}
+.ways{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.ways li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 56px;position:relative}
+.ways li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#2b1a12;font-weight:700;display:grid;place-items:center}
+form{display:grid;gap:12px;max-width:460px}
+input,select{padding:12px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:1rem var(--sans)}
+#msg{color:var(--accent);font-weight:600;min-height:1.4em}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.9rem;text-align:center}
+@media (max-width:760px){
+  .hero,.story{grid-template-columns:1fr}
+  .jar{max-width:240px;font-size:5rem}
+  nav a.hide{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">podi<span>.co</span></a>
+    <nav>
+      <a class="hide" href="#range">Range</a>
+      <a class="hide" href="#story">Story</a>
+      <a class="hide" href="#enjoy">How to enjoy</a>
+      <a href="#order">Order</a>
+      <span class="cartpill" id="pill">Box: 0</span>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">Small-batch · Stone-ground · South Indian</div>
+      <h1>The spice powder your plate has been missing.</h1>
+      <p class="lead">podi.co makes fresh, roasted podis the way grandmothers do: slow-roasted lentils, whole spices and no shortcuts. Just add ghee or sesame oil.</p>
+      <p><a class="btn" href="#range">Shop the range</a><a class="btn ghost" href="#enjoy">How to enjoy</a></p>
+    </div>
+    <div class="jar" role="img" aria-label="Jar of podi">🌶️</div>
+  </div>
+
+  <section id="range" class="wrap">
+    <h2>Our podis</h2>
+    <p class="sub">Four classics, 100 g jars. Sample prices for this demo page.</p>
+    <div class="grid" id="products"></div>
+  </section>
+
+  <section id="story" class="wrap">
+    <div class="story">
+      <div>
+        <h2>Made slowly, in small batches</h2>
+        <p class="sub">Every batch is dry-roasted, cooled and ground in small lots so the aroma stays in the jar, not in the factory.</p>
+        <p>We start with lentils, sesame and whole spices, roast each one separately and grind coarse. There are no preservatives, no colours and no fillers. Open a jar and you can smell the difference.</p>
+      </div>
+      <div class="stats">
+        <div class="card"><b>0</b>preservatives</div>
+        <div class="card"><b>4</b>signature blends</div>
+        <div class="card"><b>100g</b>fresh jars</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="enjoy" class="wrap">
+    <h2>Three ways to enjoy</h2>
+    <p class="sub">Simple, quick and very South Indian.</p>
+    <ol class="ways">
+      <li><b>Classic:</b> mix a spoon of podi with ghee or sesame oil and eat with hot idli or dosa.</li>
+      <li><b>Rice bowl:</b> stir into steaming rice with a drop of ghee and a squeeze of lemon.</li>
+      <li><b>Sprinkle:</b> dust over roasted vegetables, eggs or curd rice for a quick kick.</li>
+    </ol>
+  </section>
+
+  <section id="order" class="wrap">
+    <h2>Build your box</h2>
+    <p class="sub">This is a demo form. It does not send a real order.</p>
+    <form id="form">
+      <input id="name" placeholder="Your name" required>
+      <input id="phone" placeholder="Phone number" inputmode="tel" required>
+      <select id="pick"></select>
+      <button class="btn" type="submit">Place sample order</button>
+      <div id="msg" role="status"></div>
+    </form>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 podi.co · A sample brand page for a portfolio project</div></footer>
+
+<script>
+// Edit this list to change the products on the page.
+var products = [
+  {emoji:"🍚", name:"Idli Podi", note:"Classic roasted lentil and chilli blend. Perfect with ghee.", heat:"Heat: medium", price:150},
+  {emoji:"🧄", name:"Garlic Podi", note:"Bold roasted garlic with dry coconut for a deeper flavour.", heat:"Heat: hot", price:170},
+  {emoji:"🌿", name:"Curry Leaf Podi", note:"Fragrant curry leaves, gentle spice. Great on rice.", heat:"Heat: mild", price:160},
+  {emoji:"🥜", name:"Peanut Podi", note:"Crunchy roasted peanut and sesame. Kid-friendly.", heat:"Heat: mild", price:155}
+];
+var box = 0;
+var grid = document.getElementById("products");
+var pick = document.getElementById("pick");
+products.forEach(function(p, i){
+  var d = document.createElement("div");
+  d.className = "card";
+  d.innerHTML = '<div class="em">' + p.emoji + '</div><h3>' + p.name + '</h3><p>' + p.note +
+    '</p><div class="heat">' + p.heat + '</div><div class="row" style="margin-top:12px"><span class="price">₹' + p.price +
+    '</span><button class="btn sm" data-i="' + i + '">Add to box</button></div>';
+  grid.appendChild(d);
+  var o = document.createElement("option");
+  o.value = p.name; o.textContent = p.name + " (₹" + p.price + ")";
+  pick.appendChild(o);
+});
+grid.addEventListener("click", function(e){
+  if (e.target.tagName === "BUTTON") {
+    box++;
+    document.getElementById("pill").textContent = "Box: " + box;
+    e.target.textContent = "Added ✓";
+    setTimeout(function(){ e.target.textContent = "Add to box"; }, 900);
+  }
+});
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  var n = document.getElementById("name").value;
+  document.getElementById("msg").textContent = "Thanks " + n + "! This is a demo, so no order was placed.";
+  this.reset();
+});
+</script>
+</body>
+</html>
